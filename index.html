@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pass Value - index</title>
+  <style>
+    body {
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+    } 
+  </style>
+</head>
+<body>
+  <form id="form">
+    <div>
+      <label for="firstName">First Name:</label><br>
+      <input id="firstName" type="text">
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label><br>
+      <input id="lastName" type="text">
+    </div>
+    <div>
+      <label for="planName">Plan Name:</label><br>
+      <input id="planName" type="text">
+    </div>
+    <div>
+      <label for="agentName">Agent Name:</label><br>
+      <input id="agentName" type="text">
+    </div>
+    <div>
+      <label for="agentNPN">Agent NPN:</label><br>
+      <input id="agentNPN" type="text">
+    </div>
+    <div>
+      <button type="submit">Next Page</button>
+    </div>
+  </form>
+
+  <script>
+    const form = document.getElementById('form');
+    
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        planName: document.getElementById('planName').value,
+        agentName: document.getElementById('agentName').value,
+        agentNPN: document.getElementById('agentNPN').value
+      };
+      
+      localStorage.setItem("formData", JSON.stringify(formData));
+      
+      window.location.href = "form.html";
+    });
+  </script>
+
+</body>
+</html>
